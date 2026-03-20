@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="bg-white shadow-md px-8 py-4 flex justify-between items-center">
+    <nav className=" w-full bg-white shadow-md px-8 py-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold text-indigo-600">HappyShop</h1>
 
-      <div className="space-x-6 font-medium">
+      <div className="w-full space-x-6 font-medium">
         <Link to="/" className="hover:text-indigo-600">
           Home
         </Link>

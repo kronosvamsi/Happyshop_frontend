@@ -1,53 +1,14 @@
-import { useState } from "react";
-
-function Login() {
-  const [inputValue, setInputValue] = useState({
-    username: "",
-    password: "",
-  });
-
-  function changeHandler(e) {
-    // console.log(e.target);
-    const name = e.target.name;
-    const value = e.target.value;
-    setInputValue((values) => ({ ...values, [name]: value }));
-  }
-
-  async function submitHandler(e) {
-    e.preventDefault();
-    try {
-      const response = await fetch("http://127.0.0.1:8000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(inputValue),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("Success:", data);
-        // example: store token
-        localStorage.setItem("token", data.access_token);
-      } else {
-        console.log("Error:", data);
-      }
-    } catch (error) {
-      console.error("Request failed:", error);
-    }
-  }
-
+function Login({ submithandler, changehandler, inputvalue }) {
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submithandler}>
         <div>
           <label>Username/Email</label>
           <input
             type="text"
             name="username"
-            value={inputValue.username}
-            onChange={changeHandler}
+            value={inputvalue.username}
+            onChange={changehandler}
           />
         </div>
         <div>
@@ -55,8 +16,8 @@ function Login() {
           <input
             type="text"
             name="password"
-            value={inputValue.password}
-            onChange={changeHandler}
+            value={inputvalue.password}
+            onChange={changehandler}
           />
         </div>
         <div>

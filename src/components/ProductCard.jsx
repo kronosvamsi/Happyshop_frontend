@@ -7,7 +7,7 @@ function ProductCard({ product }) {
         className="rounded-lg mb-4"
       />
 
-      <h3 className="font-semibold text-lg">{product.name}</h3>
+      <h3 className="font-semibold text-lg text-black">{product.name}</h3>
       <p className="text-gray-500 mb-2">₹{product.price}</p>
 
       <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">

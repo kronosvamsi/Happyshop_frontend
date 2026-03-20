@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
+    <div className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
       <h1 className="text-5xl font-bold mb-4">Discover Your Style</h1>
       <p className="text-lg mb-6">
         Shop the latest trends at unbeatable prices
