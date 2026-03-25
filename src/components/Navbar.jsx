@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../context/AuthContextProvider";
 function Navbar() {
+  const { userId } = useAuth();
   return (
     <nav className=" w-full bg-white shadow-md px-8 py-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold text-indigo-600">HappyShop</h1>
@@ -21,6 +22,7 @@ function Navbar() {
         >
           Login
         </Link>
+        {userId && <h2 className="text-black">UserId :{userId}</h2>}
       </div>
     </nav>
   );

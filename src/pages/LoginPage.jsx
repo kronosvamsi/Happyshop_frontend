@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Login from "../components/Login";
 import api from "../services/api";
+import { useAuth } from "../context/AuthContextProvider";
+import { use } from "react";
 
 function LoginPage() {
   const [inputValue, setInputValue] = useState({
@@ -9,6 +11,7 @@ function LoginPage() {
     password: "",
   });
   const navigate = useNavigate();
+  const { updateUserId } = useAuth();
 
   function changeHandler(e) {
     const name = e.target.name;
@@ -25,6 +28,7 @@ function LoginPage() {
         // console.log("res", response.data);
         localStorage.setItem("access_token", response.data.access_token);
         localStorage.setItem("refresh_token", response.data.refresh_token);
+        updateUserId(response.data.access_token);
         navigate("/");
       })
       .catch((err) => console.log("err", err));
