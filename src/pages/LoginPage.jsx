@@ -18,11 +18,11 @@ function LoginPage() {
 
   function submitHandler(e) {
     e.preventDefault();
-    const url = "http://127.0.0.1:8000/auth/login";
+    const url = "/auth/login";
     api
       .post(url, inputValue)
       .then((response) => {
-        console.log("res", response.data);
+        // console.log("res", response.data);
         localStorage.setItem("access_token", response.data.access_token);
         localStorage.setItem("refresh_token", response.data.refresh_token);
         navigate("/");
